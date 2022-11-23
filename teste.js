@@ -78,11 +78,13 @@ function buscarExtensaoArquivo(arquivo) {
 
 function diretorioPermitido(diretorio) {
   if (
-    diretorio.toUpperCase() !== "$RECYCLE.BIN" &&
+    !diretorio.startsWith("$") &&
     diretorio.toUpperCase() !== "JBOSS6" &&
     diretorio.toUpperCase() !== "ECLIPSE" &&
     diretorio.toUpperCase() !== "TARGET" &&
-    diretorio.toUpperCase() !== "NODE_MODULES"
+    diretorio.toUpperCase() !== "NODE_MODULES" && 
+    diretorio.toUpperCase() !== "ARQUIVOS DE PROGRAMAS" &&
+    diretorio.toUpperCase() !== "PROGRAM FILES"
   ) {
     return true;
   } else {
